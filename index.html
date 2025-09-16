@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drª Rayssa Nunes — Fisioterapia Dermatofuncional</title>
+    <meta name="description" content="Atendimento em fisioterapia dermatofuncional com Drª Rayssa Nunes. Saúde, estética e bem-estar com atendimento personalizado.">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #d63384;
+            --secondary: #f06292;
+            --bg: #ffffff;
+            --text: #333;
+            --muted: #6c757d;
+            --radius: 14px;
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;scroll-behavior:smooth;}
+        header{position:fixed;top:0;left:0;right:0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.05);display:flex;justify-content:space-between;align-items:center;padding:12px 20px;z-index:1000;}
+        header .brand{font-weight:700;color:var(--primary);}
+        nav a{margin-left:15px;text-decoration:none;color:var(--text);font-weight:500;transition:color .3s;}
+        nav a:hover{color:var(--primary);}
+        nav a.cta{background:var(--primary);color:#fff;padding:8px 16px;border-radius:8px;}
+
+        /* SEÇÕES */
+        section{padding:100px 20px;max-width:1200px;margin:auto;}
+        section h2{text-align:center;color:var(--primary);margin-bottom:50px;}
+
+        /* BANNER HERO */
+        .banner-hero{
+            background:#fff;
+            border-radius:30px;
+            padding:50px 20px;
+            max-width:1200px;
+            margin:120px auto 60px auto;
+            box-shadow:0 10px 30px rgba(0,0,0,0.1);
+        }
+        .banner-content{
+            display:flex;
+            align-items:center;
+            gap:50px;
+            flex-wrap:wrap;
+        }
+        .banner-img img{
+            width:100%;
+            max-width:450px;
+            border-radius:20px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.15);
+        }
+        .banner-text{flex:1;}
+        .banner-text h1{font-size:42px;color:var(--primary);margin-bottom:20px;}
+        .banner-text p{font-size:18px;line-height:1.7;margin-bottom:25px;}
+        .btn-primary{background:var(--primary);color:#fff;padding:14px 24px;border-radius:8px;font-weight:600;text-decoration:none;transition:all 0.3s;display:inline-block;}
+        .btn-primary:hover{background:var(--secondary);transform:scale(1.05);}
+
+        /* SOBRE A PROFISSIONAL */
+        .about{display:flex;flex-wrap:wrap;align-items:center;gap:40px;margin-top:40px;}
+        .about img{flex:1;max-width:400px;border-radius:var(--radius);box-shadow:0 10px 30px rgba(0,0,0,0.1);}
+        .about div{flex:2;}
+        .about h3{color:var(--primary);margin-bottom:15px;}
+        .about p{font-size:16px;line-height:1.7;}
+
+        /* GALERIA */
+        .galeria-grid{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;margin-top:50px;}
+        .galeria-grid a{display:block;width:320px;height:320px;overflow:hidden;border-radius:var(--radius);box-shadow:0 10px 25px rgba(0,0,0,0.15);}
+        .galeria-grid img{width:100%;height:100%;object-fit:cover;transition:transform .3s;}
+        .galeria-grid img:hover{transform:scale(1.05);}
+        .lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;z-index:2000;}
+        .lightbox img{max-width:90%;max-height:90%;border-radius:var(--radius);}
+        .lightbox:target{display:flex;}
+
+        /* TRATAMENTOS */
+        .service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;margin-top:30px;}
+        .service{background:#fff;padding:25px;border-radius:var(--radius);box-shadow:0 6px 15px rgba(0,0,0,0.05);transition:transform .3s, box-shadow .3s;text-align:center;}
+        .service i{font-size:40px;color:var(--primary);margin-bottom:15px;}
+        .service h3{margin-bottom:15px;color:var(--primary);}
+        .service p{font-size:15px;line-height:1.7;}
+        .service:hover{transform:translateY(-6px);box-shadow:0 15px 25px rgba(0,0,0,0.15);}
+
+        /* FORMULÁRIO */
+        form{display:grid;gap:18px;max-width:500px;margin:auto;margin-top:30px;}
+        form input, form select{padding:14px;border:1px solid #ddd;border-radius:8px;font-family:inherit;}
+        form button{background:var(--primary);color:#fff;border:none;padding:16px;border-radius:8px;font-weight:600;cursor:pointer;transition:all .3s;}
+        form button:hover{background:var(--secondary);transform:scale(1.03);}
+
+        /* FOOTER */
+        .footer{background:#fff;padding:25px;text-align:center;font-size:14px;color:var(--muted);margin-top:60px;}
+
+        /* ICONES FLUTUANTES */
+        .floating-icons{position:fixed;bottom:25px;right:25px;display:flex;flex-direction:column;gap:15px;}
+        .floating-icons a{width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 6px 15px rgba(0,0,0,0.2);transition:transform 0.3s,box-shadow 0.3s;}
+        .floating-icons a.instagram{background:#E1306C;color:#fff;}
+        .floating-icons a.whatsapp{background:#25D366;color:#fff;}
+        .floating-icons a.email{background:#0072C6;color:#fff;}
+        .floating-icons a:hover{transform:scale(1.2);box-shadow:0 8px 20px rgba(0,0,0,0.3);}
+
+        /* RESPONSIVO */
+        @media(max-width:900px){
+            .service-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
+            .banner-content{flex-direction:column;text-align:center;}
+            .banner-img img{max-width:300px;}
+            .banner-text h1{font-size:32px;}
+            .banner-text p{font-size:16px;}
+            .galeria-grid a{width:220px;height:220px;}
+            .about{flex-direction:column;text-align:center;}
+            .about img{margin-bottom:25px;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="brand">RN • Drª Rayssa Nunes</div>
+    <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#services">Tratamentos</a>
+        <a href="#agendamento" class="cta">Agendar</a>
+    </nav>
+</header>
+
+<!-- BANNER PROFISSIONAL -->
+<section class="banner-hero">
+    <div class="banner-content">
+        <div class="banner-img">
+            <img src="img/imagen2.jpeg" alt="Dra Rayssa Nunes">
+        </div>
+        <div class="banner-text">
+            <h1>Fisioterapia Dermatofuncional</h1>
+            <p>Cuidando da saúde, estética e bem-estar com atendimento personalizado. Tratamentos faciais e corporais focados em resultados e satisfação do paciente.</p>
+            <a href="#agendamento" class="btn-primary"><i class="fas fa-calendar-alt"></i> Agendar Consulta</a>
+        </div>
+    </div>
+</section>
+
+<!-- SOBRE A PROFISSIONAL -->
+<section id="sobre">
+    <h2>Sobre a Profissional</h2>
+    <div class="about">
+        <img src="img/imagen1.jpeg" alt="Dra Rayssa Nunes">
+        <div>
+            <h3>Drª Rayssa Nunes</h3>
+            <p>Especialista em fisioterapia dermatofuncional, Dra. Rayssa oferece tratamentos faciais e corporais personalizados, protocolos de pós-operatório e atendimento humanizado, promovendo saúde, bem-estar e autoestima com cuidado individualizado.</p>
+        </div>
+    </div>
+</section>
+
+<!-- GALERIA -->
+<section id="galeria">
+    <h2>Galeria de Imagens</h2>
+    <div class="galeria-grid">
+        <a href="#img1"><img src="img/imagen1.jpeg" alt="Imagem 1"></a>
+        <a href="#img2"><img src="img/imagen2.jpeg" alt="Imagem 2"></a>
+        <a href="#img3"><img src="img/imagen3.jpeg" alt="Imagem 3"></a>
+    </div>
+    <div id="img1" class="lightbox"><a href="#"><img src="img/imagen1.jpeg"></a></div>
+    <div id="img2" class="lightbox"><a href="#"><img src="img/imagen2.jpeg"></a></div>
+    <div id="img3" class="lightbox"><a href="#"><img src="img/imagen3.jpeg"></a></div>
+</section>
+
+<!-- TRATAMENTOS -->
+<section id="services">
+    <h2>Tratamentos Dermatofuncionais</h2>
+    <div class="service-grid">
+        <div class="service">
+            <i class="fas fa-spa"></i>
+            <h3>Limpeza de Pele</h3>
+            <p>Remoção de impurezas, cravos e células mortas, promovendo pele saudável e revitalizada. Ideal para prevenção de acne e manutenção da saúde facial.</p>
+        </div>
+        <div class="service">
+            <i class="fas fa-spray-can"></i>
+            <h3>Drenagem Linfática</h3>
+            <p>Estimula o sistema linfático, reduz inchaços, melhora circulação e auxilia na recuperação pós-cirúrgica.</p>
+        </div>
+        <div class="service">
+            <i class="fas fa-bolt"></i>
+            <h3>Radiofrequência</h3>
+            <p>Uso de ondas de rádio para estimular colágeno, promovendo firmeza, elasticidade e melhor textura da pele.</p>
+        </div>
+        <div class="service">
+            <i class="fas fa-hand-holding-heart"></i>
+            <h3>Massoterapia</h3>
+            <p>Técnicas de massagem que aliviam tensões musculares, promovem relaxamento, melhoram circulação e reduzem estresse.</p>
+        </div>
+    </div>
+</section>
+
+<!-- AGENDAMENTO -->
+<section id="agendamento">
+    <h2>Agendamento via WhatsApp</h2>
+    <form onsubmit="enviarWhatsApp(event)">
+        <input type="text" id="nome" placeholder="Seu nome" required>
+        <select id="tratamento" required>
+            <option value="" disabled selected>Selecione o tratamento</option>
+            <option value="Limpeza de Pele">Limpeza de Pele</option>
+            <option value="Drenagem Linfática">Drenagem Linfática</option>
+            <option value="Radiofrequência">Radiofrequência</option>
+            <option value="Massoterapia">Massoterapia</option>
+        </select>
+        <button type="submit">Agendar via WhatsApp</button>
+    </form>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+    &copy; 2025 Drª Rayssa Nunes. Todos os direitos reservados.
+</div>
+
+<!-- ICONES FLUTUANTES -->
+<div class="floating-icons">
+    <a href="https://www.instagram.com/rayyssanunes" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/5583998286951" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+    <a href="mailto:rayyssan3@gmail.com" class="email"><i class="fas fa-envelope"></i></a>
+</div>
+
+<script>
+    function enviarWhatsApp(e){
+        e.preventDefault();
+        const nome = document.getElementById('nome').value;
+        const tratamento = document.getElementById('tratamento').value;
+        const mensagem = `Olá, meu nome é ${nome}. Gostaria de agendar o tratamento de *${tratamento}*.`;
+        const url = `https://wa.me/5583998286951?text=${encodeURIComponent(mensagem)}`;
+        window.open(url,'_blank');
+    }
+</script>
+
+</body>
+</html>
